@@ -14,4 +14,6 @@ export class LabsComponent {
     'Crear un nuevo proyecto',
     'Imprimir un arreglo'
   ];
+  name = 'Breynner Ariza';
+  edad = 18;
 }
