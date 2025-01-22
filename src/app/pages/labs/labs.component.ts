@@ -1,19 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-labs',
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './labs.component.html',
   styleUrl: './labs.component.css'
 })
 export class LabsComponent {
   saludoVariable = 'Hola desde la logica';
-  tasks = [
+  tasks = signal([
     'Instalar angular',
     'Crear un nuevo proyecto',
     'Imprimir un arreglo'
-  ];
+  ]);
   nombre = 'Breynner Ariza';
   edad = 18;
 
@@ -25,14 +28,21 @@ export class LabsComponent {
   buttomDisabled = true;
 
   //Creacion de objetos
-  person = {
-    name: 'Breynner Ariza',
-    age: 21,
+  person = signal({
+    name: 'Karen Arizas',
+    age: 12,
     description: 'Utilizando propiedades utilizando un objeto'
-  }
+  });
 
   //NAME REACTIVO
   nameReactivo = signal('Breynner Ariza Reactivo');
+
+  colorControl = new FormControl();
+
+
+  constructor(){
+   
+  }
 
   clickHander(){
     alert('Hola');
@@ -47,6 +57,29 @@ export class LabsComponent {
   keyDownHandler(event : KeyboardEvent){
     const input = event.target as HTMLInputElement;
     console.log(input.value);
+  }
+
+  changeName(event : Event){
+    const input = event.target as HTMLInputElement;
+    const name = input.value;
+    this.person.update((person) => {
+      return {
+        ...person,
+        name
+      };
+    })
+  }
+
+  changeAge(event : Event){
+    const input = event.target as HTMLInputElement;
+    const ageValue = input.value;
+
+    this.person.update((person) => {
+      return {
+        ...person,
+        age: parseInt(ageValue)
+      }
+    });
   }
 
 }
