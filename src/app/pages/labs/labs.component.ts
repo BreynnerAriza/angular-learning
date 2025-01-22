@@ -16,4 +16,12 @@ export class LabsComponent {
   ];
   name = 'Breynner Ariza';
   edad = 18;
+
+  // PROPERTI BINDING
+  inputValue = 'Breynner Ariza';
+  imgUri = 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png';
+  imgDescription = 'Foto de perfil';
+  buttomValue = 'Click me';
+  buttomDisabled = true;
+
 }
