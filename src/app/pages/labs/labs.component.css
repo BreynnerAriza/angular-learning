@@ -1,0 +1,12 @@
+.container{
+    padding: 3rem;
+}
+img{
+    display: block;
+}
+button{
+    background-color: blue;
+    padding: 10px;
+    color: white;
+}
+button:hover{cursor: pointer;}

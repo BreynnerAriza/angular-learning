@@ -1,19 +1,39 @@
-<h1>Mi primer proyecto</h1>
-<h2>{{ saludoVariable }}</h2>
-<ul>
-  <li *ngFor="let task of tasks"> {{ task }}</li>
-</ul>
+<div class="container">
+  <h1>Mi primer proyecto</h1>
+  <h2>{{ saludoVariable }}</h2>
+  <ul>
+    <li *ngFor="let task of tasks">{{ task }}</li>
+  </ul>
 
-<hr />
+  <hr />
 
-<h2>
-  {{ 'Hola'.repeat(4) }}
-</h2>
-<p>La suma 1 + 1 = {{ 1 + 1  }} </p>
-<p>Hola, mi nombre es {{ name }} y tengo {{edad}} años</p>
+  <h2>
+    {{ "Hola".repeat(4) }}
+  </h2>
+  <p>La suma 1 + 1 = {{ 1 + 1 }}</p>
+  <p>Hola, mi nombre es {{ nombre }} y tengo {{ edad }} años</p>
 
-<hr />
+  <hr />
 
-<input type="text" [value]="inputValue">
-<img [src]="imgUri" [alt]="imgDescription">
-<button [value]="buttomValue" [disabled]="buttomDisabled">Hola</button>
+  <input type="text" [value]="inputValue" />
+  <img [src]="imgUri" [alt]="imgDescription" />
+  <button [value]="buttomValue" [disabled]="buttomDisabled">Hola</button>
+
+  <hr />
+
+  <p>Mi nombre es {{ person.name }}</p>
+  <p>Tengo {{ person.age }} años</p>
+  <p>Esto se imprime desde {{ person.description }}</p>
+
+  <hr />
+  <h2>MANEJO DE EVENTOS</h2>
+  <button (click)="clickHander()">Click me event</button>
+  <button (dblclick)="clickHander()">Double click me event</button>
+  <input type="text" (change)="chageInput($event)">
+  <input type="text" (keydown.shift.t)="clickHander()">
+
+  <hr />
+  <h2>SIGNALS</h2>
+  <p>{{ nameReactivo() }}</p>
+
+</div>
